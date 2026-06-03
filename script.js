@@ -1,15 +1,8 @@
-const link = document.querySelector("a");
-link.addEventListener("click", function (e) {
-  console.log("you clicked the link");
-  e.stopPropagation();
-  e.preventDefault();
-});
-const btn = document.querySelector("#one");
-btn.addEventListener("click", function (e) {
-  console.log("you clicked the button");
-  e.stopPropagation();
+const clickEvent = new Event("click");
+const btn = document.getElementById("one");
+btn.addEventListener("click", function (event) {
+  console.log(event);
+  console.log("clicked");
 });
 
-document.body.addEventListener("click", function (event) {
-  console.log("you clicked the body");
-});
+btn.dispatchEvent(clickEvent);
